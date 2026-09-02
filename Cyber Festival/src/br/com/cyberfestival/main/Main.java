@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args)
     {
 
+        //Instanciação da Bilheteria
         Bilheteria bilheteria = new Bilheteria();
 
         Ingresso Ingresso_1 = new Ingresso("A-01", "VIP", 500.00);

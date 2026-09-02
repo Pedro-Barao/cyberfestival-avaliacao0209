@@ -1,12 +1,14 @@
 package br.com.cyberfestival.model;
 
+//Classe dos ingressos
 public class Ingresso {
     
+    //Atributos de ingresso
     private String codigoId;
     private String tipo;
     private double valor;
 
-
+    //Construtor para salvar os dados de ingresso
     public Ingresso(String codigoId, String tipo, double valor)
     {
 
@@ -17,6 +19,7 @@ public class Ingresso {
     }
 
 
+    //Metodos que retornam os valores de um ingresso
     public String getCodigoId()
     {
 
@@ -37,5 +40,5 @@ public class Ingresso {
         return valor;
 
     }
-    
+
 }

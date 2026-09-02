@@ -3,28 +3,42 @@ package br.com.cyberfestival.model;
 import java.util.HashMap;
 import java.util.Map;
 
+//Classe da bilheteria
 public class Bilheteria {
     
+    //Map que guarda todos os ingressos
     Map<String, Ingresso> ingressosVendidos = new HashMap<>();
 
 
+    //Método que vender e registra a venda dos ingressos
     public void venderIngresso(Ingresso ingresso)
     {
 
-        if(ingressosVendidos.containsKey(ingresso.getCodigoId()) || ingresso == null)
+        //Validação  do ingresso: Se ele é existente
+        if(ingresso == null)
         {
 
-            throw new IngressoInvalidoException("\nErro de Segurança: Ingresso já validado ou código duplicado!");
+            throw new IllegalArgumentException("O ingresso não pode ser nulo.");
 
         }
 
-        
-        System.out.println("\nIngresso: " + ingresso.getCodigoId() + "\nTipo: " + ingresso.getTipo() + " | Valor: " + ingresso.getValor());
+        //Validação  do ingresso: Se ele é válido
+        if(ingressosVendidos.containsKey(ingresso.getCodigoId()) || ingresso == null)
+        {
 
+            throw new IngressoInvalidoException();
+
+        }
+
+        //Coloca dentro do Map os valores
         ingressosVendidos.put(ingresso.getCodigoId(), ingresso);
+
+        //Comprovação de ingresso salvo
+        System.out.println("\nIngresso: " + ingresso.getCodigoId() + "\nTipo: " + ingresso.getTipo() + " | Valor: " + ingresso.getValor());
 
     }
 
+    //
     public double calcularReceitaVIP()
     {
 
