@@ -1,9 +1,7 @@
 package br.com.cyberfestival.model;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Bilheteria {
     
@@ -16,21 +14,26 @@ public class Bilheteria {
         if(ingressosVendidos.containsKey(ingresso.getCodigoId()) || ingresso == null)
         {
 
-            throw new IngressoInvalidoException("Erro de Segurança: Ingresso já validado ou código duplicado!");
+            throw new IngressoInvalidoException("\nErro de Segurança: Ingresso já validado ou código duplicado!");
 
         }
+
+        
+        System.out.println("\nIngresso: " + ingresso.getCodigoId() + "\nTipo: " + ingresso.getTipo() + " | Valor: " + ingresso.getValor());
+
+        ingressosVendidos.put(ingresso.getCodigoId(), ingresso);
 
     }
 
     public double calcularReceitaVIP()
     {
 
-        double receitaVIP = ingressosVendidos.stream()
-            .filter(ingressosVendidos -> ingressosVendidos.getTipo() == "VIP")
-            .mapToDouble(Double::valor)
+        double receitaVIP = ingressosVendidos.values().stream()
+            .filter(ingressosVendidos -> ingressosVendidos.getTipo().equals("VIP"))
+            .mapToDouble(Ingresso::getValor)
             .sum();
 
-        return 0.0;
+        return receitaVIP;
 
     }
 
