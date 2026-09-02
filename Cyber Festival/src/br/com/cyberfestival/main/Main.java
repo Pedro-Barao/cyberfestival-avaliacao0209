@@ -31,7 +31,7 @@ public class Main {
         catch (IngressoInvalidoException error)
         {
 
-            error.getMessage();
+            System.out.println(error.getMessage());
 
         }
 
