@@ -12,10 +12,13 @@ public class Main {
         //Instanciação da Bilheteria
         Bilheteria bilheteria = new Bilheteria();
 
+        //Criação dos ingressos
         Ingresso Ingresso_1 = new Ingresso("A-01", "VIP", 500.00);
         Ingresso Ingresso_2 = new Ingresso("A-02", "PISTA", 200.00);
         Ingresso Ingresso_3 = new Ingresso("A-01", "VIP", 200.00);
 
+
+        //Validação dos ingressos
         try
         {
 
@@ -32,6 +35,7 @@ public class Main {
 
         }
 
+        //Retorando o valor do calculo dos VIP
         System.out.println("\n" + bilheteria.calcularReceitaVIP());
 
     }
