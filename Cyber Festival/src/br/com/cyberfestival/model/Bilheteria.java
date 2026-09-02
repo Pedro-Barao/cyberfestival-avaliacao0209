@@ -38,7 +38,7 @@ public class Bilheteria {
 
     }
 
-    //
+    //Calculo da soma dos ingresso VIP
     public double calcularReceitaVIP()
     {
 
